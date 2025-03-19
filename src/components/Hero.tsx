@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Calendar, Globe, Award } from 'lucide-react';
+import { Calendar, Globe, Award, Circle, Star, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const rayRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,9 @@ const Hero = () => {
       const dotsContainer = document.querySelector('.floating-dots');
       if (!dotsContainer) return;
       
-      for (let i = 0; i < 100; i++) {
+      dotsContainer.innerHTML = ''; // Clear existing dots
+      
+      for (let i = 0; i < 150; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         
@@ -41,19 +43,76 @@ const Hero = () => {
         dot.style.top = `${y}%`;
         
         // Random size
-        const size = Math.random() * 2 + 1;
+        const size = Math.random() * 2 + 0.5;
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         
         // Random opacity
-        dot.style.opacity = (Math.random() * 0.5 + 0.1).toString();
+        dot.style.opacity = (Math.random() * 0.3 + 0.05).toString();
         
         dotsContainer.appendChild(dot);
       }
     };
     
+    // Create floating elements
+    const createFloatingElements = () => {
+      const elementsContainer = document.querySelector('.floating-elements');
+      if (!elementsContainer) return;
+      
+      elementsContainer.innerHTML = ''; // Clear existing elements
+      
+      const elements = [
+        { icon: Circle, size: () => Math.random() * 8 + 4, count: 10 },
+        { icon: Star, size: () => Math.random() * 10 + 6, count: 8 },
+        { icon: Sparkles, size: () => Math.random() * 12 + 8, count: 6 }
+      ];
+      
+      elements.forEach(element => {
+        for (let i = 0; i < element.count; i++) {
+          const el = document.createElement('div');
+          el.classList.add('floating-element');
+          
+          // Random position
+          const x = Math.random() * 100;
+          const y = Math.random() * 100;
+          
+          el.style.left = `${x}%`;
+          el.style.top = `${y}%`;
+          
+          // Random size
+          const size = element.size();
+          el.style.width = `${size}px`;
+          el.style.height = `${size}px`;
+          
+          // Random opacity
+          el.style.opacity = (Math.random() * 0.15 + 0.05).toString();
+          
+          // Random animation duration
+          const duration = Math.random() * 15 + 20;
+          el.style.animationDuration = `${duration}s`;
+          
+          // Random animation delay
+          const delay = Math.random() * 10;
+          el.style.animationDelay = `${delay}s`;
+          
+          // Set icon as background
+          const svgString = element.icon({ color: 'rgba(83, 196, 255, 0.4)', size: size }).toSVG();
+          const encodedSvg = encodeURIComponent(svgString);
+          el.style.backgroundImage = `url('data:image/svg+xml,${encodedSvg}')`;
+          
+          elementsContainer.appendChild(el);
+        }
+      });
+    };
+    
     window.addEventListener('mousemove', handleMouseMove);
     createDots();
+    
+    try {
+      createFloatingElements();
+    } catch (error) {
+      console.error("Failed to create floating elements:", error);
+    }
     
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -70,6 +129,7 @@ const Hero = () => {
       {/* Background elements */}
       <div className="hero-grid"></div>
       <div className="floating-dots"></div>
+      <div className="floating-elements"></div>
       <div className="hero-shape hero-shape-1"></div>
       <div className="hero-shape hero-shape-2"></div>
       

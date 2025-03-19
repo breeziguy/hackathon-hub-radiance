@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BarChart3, Lightning, Terminal } from 'lucide-react';
+import { BarChart3, Zap, Terminal } from 'lucide-react';
 
 type Sponsor = {
   id: number;
@@ -122,7 +121,7 @@ const Sponsors = () => {
                   <div key={sponsor.id} className="sponsor-logo">
                     {sponsor.placeholder ? (
                       <div className="flex flex-col items-center justify-center">
-                        <Lightning size={32} className="text-accent mb-2" />
+                        <Zap size={32} className="text-accent mb-2" />
                         <span className="text-lg font-medium">{sponsor.name}</span>
                       </div>
                     ) : (

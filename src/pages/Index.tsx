@@ -46,8 +46,8 @@ const Index = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
-            <div className="mx-auto">
-              <h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Unleash Your Creativity</h3>
+            <div className="mx-auto text-center md:text-center">
+              <h3 className="text-2xl font-semibold mb-6">Unleash Your Creativity</h3>
               <p className="text-white/70 mb-6">
                 The World's Largest Hackathon is an unprecedented event bringing together participants from every corner of the globe 
                 to ideate, create, and innovate. Whether you're a seasoned developer, a creative designer, or a visionary entrepreneur, 
