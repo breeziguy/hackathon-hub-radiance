@@ -1,80 +1,74 @@
+
 import React from 'react';
-import { BarChart3, Zap, Terminal } from 'lucide-react';
+import { Database, Server, Globe, LucideIcon } from 'lucide-react';
+
+type SponsorType = 'platinum' | 'gold' | 'silver' | 'bronze';
 
 type Sponsor = {
   id: number;
   name: string;
-  type: 'platinum' | 'gold' | 'silver' | 'bronze';
+  type: SponsorType;
   src: string;
   alt: string;
+  icon: LucideIcon;
   placeholder?: boolean;
 };
 
 const sponsors: Sponsor[] = [
   {
     id: 1,
-    name: 'TechGiant',
+    name: 'Supabase',
     type: 'platinum',
     src: '/placeholder.svg',
-    alt: 'TechGiant logo',
+    alt: 'Supabase logo',
+    icon: Database,
     placeholder: true
   },
   {
     id: 2,
-    name: 'CloudSys',
+    name: 'Netlify',
     type: 'platinum',
     src: '/placeholder.svg',
-    alt: 'CloudSys logo',
+    alt: 'Netlify logo',
+    icon: Server,
     placeholder: true
   },
   {
     id: 3,
-    name: 'AILabs',
+    name: 'CloudflareDev',
     type: 'gold',
     src: '/placeholder.svg',
-    alt: 'AILabs logo',
+    alt: 'CloudflareDev logo',
+    icon: Globe,
     placeholder: true
   },
   {
     id: 4,
-    name: 'DataVerse',
+    name: 'GetSentry',
     type: 'gold',
     src: '/placeholder.svg',
-    alt: 'DataVerse logo',
+    alt: 'GetSentry logo',
+    icon: Server,
     placeholder: true
   },
   {
     id: 5,
-    name: 'CryptoNext',
+    name: 'Loops',
     type: 'silver',
     src: '/placeholder.svg',
-    alt: 'CryptoNext logo',
+    alt: 'Loops logo',
+    icon: Database,
     placeholder: true
   },
   {
     id: 6,
-    name: 'DevTools',
+    name: 'AlgoFoundation',
     type: 'silver',
     src: '/placeholder.svg',
-    alt: 'DevTools logo',
+    alt: 'AlgoFoundation logo',
+    icon: Globe,
     placeholder: true
-  },
-  {
-    id: 7,
-    name: 'StartupX',
-    type: 'bronze',
-    src: '/placeholder.svg',
-    alt: 'StartupX logo',
-    placeholder: true
-  },
-  {
-    id: 8,
-    name: 'InnovateCo',
-    type: 'bronze',
-    src: '/placeholder.svg',
-    alt: 'InnovateCo logo',
-    placeholder: true
-  },
+  }
 ];
 
 const Sponsors = () => {
@@ -100,7 +94,7 @@ const Sponsors = () => {
                   <div key={sponsor.id} className="sponsor-logo h-32">
                     {sponsor.placeholder ? (
                       <div className="flex flex-col items-center justify-center">
-                        <Terminal size={40} className="text-accent mb-2" />
+                        <sponsor.icon size={40} className="text-accent mb-2" />
                         <span className="text-lg font-medium">{sponsor.name}</span>
                       </div>
                     ) : (
@@ -121,7 +115,7 @@ const Sponsors = () => {
                   <div key={sponsor.id} className="sponsor-logo">
                     {sponsor.placeholder ? (
                       <div className="flex flex-col items-center justify-center">
-                        <Zap size={32} className="text-accent mb-2" />
+                        <sponsor.icon size={32} className="text-accent mb-2" />
                         <span className="text-lg font-medium">{sponsor.name}</span>
                       </div>
                     ) : (
@@ -134,15 +128,15 @@ const Sponsors = () => {
           
           {/* Silver & Bronze Sponsors */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-center">Silver & Bronze Partners</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Silver Partners</h3>
+            <div className="grid grid-cols-2 gap-4">
               {sponsors
-                .filter(sponsor => sponsor.type === 'silver' || sponsor.type === 'bronze')
+                .filter(sponsor => sponsor.type === 'silver')
                 .map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo h-24">
                     {sponsor.placeholder ? (
                       <div className="flex flex-col items-center justify-center">
-                        <BarChart3 size={24} className="text-accent mb-1" />
+                        <sponsor.icon size={24} className="text-accent mb-1" />
                         <span className="text-sm font-medium">{sponsor.name}</span>
                       </div>
                     ) : (

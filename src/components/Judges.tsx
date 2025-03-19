@@ -4,45 +4,45 @@ import React from 'react';
 const judges = [
   {
     id: 1,
-    name: "Alexandra Chen",
-    title: "CTO at FutureTech",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Former VP of Engineering at Google. Pioneer in AI research with over 15 years of experience building scalable tech products."
+    name: "Logan Kilpatrick",
+    title: "AI Expert",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    bio: "Leading authority in artificial intelligence and machine learning with a focus on democratizing AI technology."
   },
   {
     id: 2,
-    name: "Michael Rodriguez",
-    title: "Founding Partner, Nexus Ventures",
+    name: "Pieter Levels",
+    title: "Founder, Nomad List",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Early investor in 5 unicorn startups. Expertise in identifying disruptive technologies and scaling startups globally."
+    bio: "Serial entrepreneur and indie maker known for building profitable startups as a solo founder."
   },
   {
     id: 3,
-    name: "Dr. Sarah Johnson",
-    title: "Director of Innovation, MIT",
+    name: "Sarah Guo",
+    title: "Venture Capitalist",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Award-winning computer scientist with breakthrough research in quantum computing. Advocates for inclusive technology."
+    bio: "Investing in founders building transformative companies at the intersection of technology and industry."
   },
   {
     id: 4,
-    name: "David Kim",
-    title: "Founder & CEO, Stellar Labs",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Serial entrepreneur with 3 successful exits. Built revolutionary products in fintech and blockchain that serve millions."
+    name: "Theo",
+    title: "Developer & Educator",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    bio: "Full-stack developer and educator known for accessible tutorials and practical coding advice."
   },
   {
     id: 5,
-    name: "Priya Sharma",
-    title: "Head of Product, TechForward",
+    name: "Evan You",
+    title: "Creator of Vue.js",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Product leader who has launched category-defining products reaching over 100M users. Expert in user-centric design."
+    bio: "Open source developer and creator of Vue.js, one of the most popular JavaScript frameworks."
   },
   {
     id: 6,
-    name: "James Wilson",
-    title: "Chief Scientist, OpenAI Labs",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    bio: "Leading researcher in machine learning and natural language processing. Has published over 100 papers on AI ethics."
+    name: "KP",
+    title: "Technology Leader",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    bio: "Visionary technology leader with expertise in scaling platforms and building successful tech ecosystems."
   }
 ];
 
@@ -84,15 +84,6 @@ const Judges = () => {
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
             Our distinguished panel will evaluate projects based on innovation, technical complexity, design, and real-world impact.
           </p>
-          <div className="flex justify-center">
-            <a 
-              href="#more-judges" 
-              className="px-6 py-3 rounded-full border border-white/20 text-white font-medium inline-flex items-center 
-                        transition-all hover:bg-white/5 hover:border-white/30"
-            >
-              More judges to be announced
-            </a>
-          </div>
         </div>
       </div>
     </section>

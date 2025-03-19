@@ -95,11 +95,17 @@ const Hero = () => {
           const delay = Math.random() * 10;
           el.style.animationDelay = `${delay}s`;
           
-          // Set icon as background
-          const svgString = element.icon({ color: 'rgba(83, 196, 255, 0.4)', size: size }).toSVG();
-          const encodedSvg = encodeURIComponent(svgString);
-          el.style.backgroundImage = `url('data:image/svg+xml,${encodedSvg}')`;
+          // Fixed: Create SVG element manually instead of using toSVG
+          const IconComponent = element.icon;
+          const svgElement = document.createElement('div');
+          svgElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="rgba(83, 196, 255, 0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            ${IconComponent === Circle ? '<circle cx="12" cy="12" r="10"></circle>' : 
+              IconComponent === Star ? '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>' :
+              '<path d="M12 3v3m0 12v3m-9-9H6m12 0h3m-2.6-6.4l-2.1 2.1M8.4 15.6l-2.1 2.1m12.2-12.2l-2.1 2.1M15.6 15.6l2.1 2.1"/>'
+            }
+          </svg>`;
           
+          el.appendChild(svgElement.firstChild as Node);
           elementsContainer.appendChild(el);
         }
       });
@@ -136,8 +142,11 @@ const Hero = () => {
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex justify-center mb-6">
-          <div className="chip animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            COMING SOON
+          <div 
+            className="chip animate-fade-in flex items-center" 
+            style={{ animationDelay: '0.2s' }}
+          >
+            HOSTED BY GREG ISENBERG
           </div>
         </div>
         
@@ -180,6 +189,17 @@ const Hero = () => {
           >
             Learn More
           </a>
+        </div>
+
+        <div className="mt-16 flex justify-center">
+          <div className="w-40 h-auto">
+            <img 
+              src="data:image/svg+xml;utf8,%3Csvg width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 51 21.9'%3E%3Cpath d='M24.1 19.3c-4.7 0-7-2.7-7-6.1s3.2-7.7 7.9-7.7 7 2.7 7 6.1-3.2 7.7-7.9 7.7Zm.2-4.3c1.6 0 2.7-1.5 2.7-3.1s-.8-2-2.2-2-2.7 1.5-2.7 3.1.8 2 2.2 2ZM37 19h-4.9l4-18.2H41l-4 18.1Z'/%3E%3Cpath d='M9.6 19.3c-1.5 0-3-.5-3.8-1.7L5.5 19 0 21.9.6 19 4.6.8h4.9L8.1 7.2c1.1-1.2 2.2-1.7 3.6-1.7 3 0 4.9 1.9 4.9 5.5s-2.3 8.3-7 8.3Zm1.9-7.3c0 1.7-1.2 3-2.8 3s-1.7-.3-2.2-.9l.8-3.3c.6-.6 1.2-.9 2-.9 1.2 0 2.2.9 2.2 2.2Z' style='fill-rule:evenodd'/%3E%3Cpath d='M46.1 19.3c-2.8 0-4.9-1-4.9-3.3s0-.7.1-1l1.1-4.9h-2.2l1-4.2h2.2l.8-3.6L49.7 0l-.6 2.3-.8 3.6H51l-1 4.2h-2.7l-.7 3.2v.6c0 .6.4 1.1 1.2 1.1s.6 0 .7-.1v3.9c-.5.4-1.4.5-2.3.5Z'/%3E%3C/svg%3E"
+              alt="bolt logo"
+              className="w-full h-full text-white fill-current"
+            />
+            <span className="text-white text-opacity-70 text-xl">.new</span>
+          </div>
         </div>
       </div>
       

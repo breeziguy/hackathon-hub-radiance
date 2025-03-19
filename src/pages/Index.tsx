@@ -96,7 +96,7 @@ const Index = () => {
           </div>
           
           {/* Theme Section */}
-          <div className="mt-24">
+          <div className="mt-24 text-center">
             <div className="chip mx-auto mb-4">THIS YEAR'S THEME</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               <span className="text-accent">Breakthrough</span> Technologies for <span className="text-accent">Human Progress</span>
