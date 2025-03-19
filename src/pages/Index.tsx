@@ -7,79 +7,51 @@ import Sponsors from '@/components/Sponsors';
 import Footer from '@/components/Footer';
 import { Code, Users, Globe, Calendar } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-
 const Index = () => {
   useEffect(() => {
     const registerSectionObserver = () => {
       const sections = document.querySelectorAll('section');
-      
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
           }
         });
-      }, { threshold: 0.1 });
-      
+      }, {
+        threshold: 0.1
+      });
       sections.forEach(section => {
         observer.observe(section);
       });
     };
-    
     registerSectionObserver();
   }, []);
-
-  return (
-    <div className="bg-black min-h-screen">
+  return <div className="bg-black min-h-screen">
       <Navbar />
       <Hero />
       
       {/* Top Sponsors Bar */}
       <section className="relative py-8 bg-black/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl px-[19px] py-0 my-0 mx-[154px]">
           <div className="text-center text-white/60 text-xs uppercase mb-6">Proudly sponsored by</div>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8 items-center justify-items-center">
             <div className="h-8 md:h-10">
-              <img 
-                src="https://logos-download.com/wp-content/uploads/2023/02/Supabase_Logo.png" 
-                alt="Supabase" 
-                className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://logos-download.com/wp-content/uploads/2023/02/Supabase_Logo.png" alt="Supabase" className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="h-8 md:h-10">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Netlify_logo.svg/2560px-Netlify_logo.svg.png" 
-                alt="Netlify" 
-                className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Netlify_logo.svg/2560px-Netlify_logo.svg.png" alt="Netlify" className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="h-8 md:h-10">
-              <img 
-                src="https://logodownload.org/wp-content/uploads/2016/10/cloudflare-logo-7.png" 
-                alt="Cloudflare" 
-                className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://logodownload.org/wp-content/uploads/2016/10/cloudflare-logo-7.png" alt="Cloudflare" className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="h-8 md:h-10">
-              <img 
-                src="https://sentry-brand.storage.googleapis.com/sentry-logo-black.png" 
-                alt="Sentry" 
-                className="h-full object-contain brightness-200 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://sentry-brand.storage.googleapis.com/sentry-logo-black.png" alt="Sentry" className="h-full object-contain brightness-200 invert opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="h-8 md:h-10">
-              <img 
-                src="https://mintlify.s3.us-west-1.amazonaws.com/loops/logo/dark.png" 
-                alt="Loops" 
-                className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://mintlify.s3.us-west-1.amazonaws.com/loops/logo/dark.png" alt="Loops" className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="h-8 md:h-10">
-              <img 
-                src="https://www.blockchain.uzh.ch/wp-content/uploads/Algorand-Crypto-Logo.png" 
-                alt="Algorand Foundation" 
-                className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <img src="https://www.blockchain.uzh.ch/wp-content/uploads/Algorand-Crypto-Logo.png" alt="Algorand Foundation" className="h-full object-contain brightness-200 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
@@ -168,11 +140,8 @@ const Index = () => {
                   We encourage interdisciplinary teams that bring together diverse perspectives and skills.
                 </p>
                 <div className="flex justify-center">
-                  <a 
-                    href="#register" 
-                    className="px-6 py-3 rounded-full bg-accent text-white font-medium inline-flex items-center 
-                             transition-all hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20"
-                  >
+                  <a href="#register" className="px-6 py-3 rounded-full bg-accent text-white font-medium inline-flex items-center 
+                             transition-all hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20">
                     Ready to Build the Future?
                   </a>
                 </div>
@@ -203,40 +172,22 @@ const Index = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium mb-2">First Name</label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                      placeholder="Your first name"
-                    />
+                    <input type="text" id="firstName" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50" placeholder="Your first name" />
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium mb-2">Last Name</label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                      placeholder="Your last name"
-                    />
+                    <input type="text" id="lastName" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50" placeholder="Your last name" />
                   </div>
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                    placeholder="your.email@example.com"
-                  />
+                  <input type="email" id="email" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50" placeholder="your.email@example.com" />
                 </div>
                 
                 <div>
                   <label htmlFor="background" className="block text-sm font-medium mb-2">Your Background</label>
-                  <select
-                    id="background"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                  >
+                  <select id="background" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
                     <option value="" disabled selected>Select your primary skill</option>
                     <option value="developer">Developer</option>
                     <option value="designer">Designer</option>
@@ -248,10 +199,7 @@ const Index = () => {
                 
                 <div>
                   <label htmlFor="experience" className="block text-sm font-medium mb-2">Hackathon Experience</label>
-                  <select
-                    id="experience"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
-                  >
+                  <select id="experience" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50">
                     <option value="" disabled selected>Select your experience level</option>
                     <option value="first">This is my first hackathon</option>
                     <option value="few">I've done 1-3 hackathons</option>
@@ -261,21 +209,14 @@ const Index = () => {
                 </div>
                 
                 <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="updates"
-                    className="w-4 h-4 rounded border-white/30 bg-white/5 text-accent focus:ring-accent/50"
-                  />
+                  <input type="checkbox" id="updates" className="w-4 h-4 rounded border-white/30 bg-white/5 text-accent focus:ring-accent/50" />
                   <label htmlFor="updates" className="ml-2 text-sm text-white/70">
                     I'd like to receive updates about the hackathon and future events
                   </label>
                 </div>
                 
-                <button
-                  type="submit"
-                  className="w-full px-6 py-4 rounded-full bg-accent text-white font-semibold text-lg transition-all
-                          hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20"
-                >
+                <button type="submit" className="w-full px-6 py-4 rounded-full bg-accent text-white font-semibold text-lg transition-all
+                          hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20">
                   Register Your Interest
                 </button>
               </form>
@@ -289,8 +230,6 @@ const Index = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
