@@ -14,15 +14,47 @@ const Hero = () => {
       
       const ray1 = rayRef.current.querySelector('.ray-gradient-1') as HTMLElement;
       const ray2 = rayRef.current.querySelector('.ray-gradient-2') as HTMLElement;
+      const ray3 = rayRef.current.querySelector('.ray-gradient-3') as HTMLElement;
       
-      if (ray1 && ray2) {
+      if (ray1 && ray2 && ray3) {
         // Move rays slightly based on mouse position for subtle effect
-        ray1.style.transform = `translate(${x * 30 - 15}px, ${y * 30 - 15}px)`;
-        ray2.style.transform = `translate(${-x * 30 + 15}px, ${-y * 30 + 15}px)`;
+        ray1.style.transform = `translate(${x * 20 - 10}px, ${y * 20 - 10}px)`;
+        ray2.style.transform = `translate(${-x * 20 + 10}px, ${-y * 20 + 10}px)`;
+        ray3.style.transform = `translate(${x * 15 - 7.5}px, ${-y * 15 + 7.5}px)`;
+      }
+    };
+    
+    // Create floating dots
+    const createDots = () => {
+      const dotsContainer = document.querySelector('.floating-dots');
+      if (!dotsContainer) return;
+      
+      for (let i = 0; i < 100; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        dot.style.left = `${x}%`;
+        dot.style.top = `${y}%`;
+        
+        // Random size
+        const size = Math.random() * 2 + 1;
+        dot.style.width = `${size}px`;
+        dot.style.height = `${size}px`;
+        
+        // Random opacity
+        dot.style.opacity = (Math.random() * 0.5 + 0.1).toString();
+        
+        dotsContainer.appendChild(dot);
       }
     };
     
     window.addEventListener('mousemove', handleMouseMove);
+    createDots();
+    
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
@@ -32,7 +64,14 @@ const Hero = () => {
       <div ref={rayRef} className="ray-background">
         <div className="ray-gradient-1"></div>
         <div className="ray-gradient-2"></div>
+        <div className="ray-gradient-3"></div>
       </div>
+      
+      {/* Background elements */}
+      <div className="hero-grid"></div>
+      <div className="floating-dots"></div>
+      <div className="hero-shape hero-shape-1"></div>
+      <div className="hero-shape hero-shape-2"></div>
       
       {/* Hero content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

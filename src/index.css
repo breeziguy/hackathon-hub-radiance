@@ -37,7 +37,7 @@
 
     --radius: 0.5rem;
 
-    --gradient-opacity: 0.75;
+    --gradient-opacity: 0.15;
     --ray-gradient: radial-gradient(rgba(83, 196, 255, var(--gradient-opacity)) 0%, rgba(43, 166, 255, 0) 100%);
   }
 }
@@ -67,35 +67,68 @@
   }
 
   .ray-background {
-    --ray-size: 600px;
     transition: opacity 0.25s linear;
     position: fixed;
     inset: 0;
     pointer-events: none;
     user-select: none;
-    @apply animate-ray-pulse;
+    @apply animate-ray-pulse opacity-50;
+    overflow: hidden;
   }
 
   .ray-gradient-1 {
     background: var(--ray-gradient);
-    width: var(--ray-size);
-    height: var(--ray-size);
+    width: 120vw;
+    height: 120vh;
     border-radius: 50%;
     position: absolute;
-    top: -200px;
+    top: -40vh;
     left: 30%;
     transform: translateX(-50%);
+    filter: blur(30px);
   }
 
   .ray-gradient-2 {
     background: var(--ray-gradient);
-    width: calc(var(--ray-size) * 1.2);
-    height: calc(var(--ray-size) * 1.2);
+    width: 140vw;
+    height: 140vh;
     border-radius: 50%;
     position: absolute;
-    top: 20%;
-    right: -200px;
-    opacity: 0.6;
+    top: 30%;
+    right: -60vw;
+    opacity: 0.4;
+    filter: blur(60px);
+  }
+  
+  .ray-gradient-3 {
+    background: var(--ray-gradient);
+    width: 80vw;
+    height: 80vh;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20vh;
+    left: 10%;
+    opacity: 0.3;
+    filter: blur(40px);
+  }
+
+  .floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0.4;
+  }
+  
+  .dot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
   }
 
   .section-container {
@@ -132,4 +165,41 @@
   .chip {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent;
   }
+  
+  .hero-shape {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.2;
+  }
+  
+  .hero-shape-1 {
+    width: 40vw;
+    height: 40vw;
+    border: 1px solid rgba(83, 196, 255, 0.3);
+    border-radius: 50%;
+    top: 15%;
+    left: -20%;
+    transform: rotate(-25deg);
+  }
+  
+  .hero-shape-2 {
+    width: 30vw;
+    height: 30vw;
+    border: 1px solid rgba(83, 196, 255, 0.2);
+    border-radius: 50%;
+    bottom: 10%;
+    right: -15%;
+    transform: rotate(15deg);
+  }
+  
+  .hero-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(83, 196, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.05;
+    z-index: -1;
+  }
 }
+
