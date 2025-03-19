@@ -64,9 +64,7 @@ const Index = () => {
           <h2 className="section-heading">
             Redefining <span className="text-accent">Innovation</span>
           </h2>
-          <p className="section-subheading">
-            A global gathering of coders, designers, and visionaries collaborating to build groundbreaking solutions.
-          </p>
+          <p className="section-subheading">A global gathering of Vibe coders, Designers, and Visionaries collaborating to build groundbreaking solutions.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
             <div className="mx-auto text-left">

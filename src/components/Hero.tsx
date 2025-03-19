@@ -142,10 +142,7 @@ const Hero = () => {
         
         <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 animate-slide-up" style={{
         animationDelay: '0.2s'
-      }}>
-          Join thousands of innovators worldwide to build solutions that will shape our future. 
-          Compete for $1M+ in prizes and global recognition.
-        </p>
+      }}>Join thousands of Vibe Coders worldwide to build solutions that will shape our future. Compete for $1M+ in prizes and global recognition.</p>
         
         <div className="flex flex-col md:flex-row justify-center gap-6 mb-16 animate-slide-up" style={{
         animationDelay: '0.4s'

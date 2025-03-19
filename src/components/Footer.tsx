@@ -1,15 +1,12 @@
-
 import React from 'react';
 import { Mail, Globe, Twitter, Linkedin, Github } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="relative pt-24 pb-12 border-t border-white/10">
+  return <footer className="relative pt-24 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="text-2xl font-bold mb-4">
-              <span className="text-accent">WORLD'S</span> HACKATHON
+              <span className="text-accent">HACKATHO</span> HACKATHON
             </div>
             <p className="text-white/70 mb-6 max-w-md">
               Bringing together the brightest minds and innovative thinkers for the largest virtual hackathon on the planet.
@@ -39,9 +36,7 @@ const Footer = () => {
               <li>
                 <a href="#judges" className="text-white/70 hover:text-white transition-colors">Judges</a>
               </li>
-              <li>
-                <a href="#sponsors" className="text-white/70 hover:text-white transition-colors">Sponsors</a>
-              </li>
+              
               <li>
                 <a href="#faq" className="text-white/70 hover:text-white transition-colors">FAQ</a>
               </li>
@@ -53,9 +48,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center">
                 <Mail size={16} className="mr-2 text-accent" />
-                <a href="mailto:info@worldshackathon.com" className="text-white/70 hover:text-white transition-colors">
-                  info@worldshackathon.com
-                </a>
+                <a href="mailto:info@worldshackathon.com" className="text-white/70 hover:text-white transition-colors">info@hackathon.dev</a>
               </li>
               <li className="flex items-center">
                 <Globe size={16} className="mr-2 text-accent" />
@@ -66,11 +59,7 @@ const Footer = () => {
             <div className="mt-8">
               <h3 className="text-lg font-semibold mb-4">Subscribe</h3>
               <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-white/5 border border-white/10 rounded-l-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent/50 w-full"
-                />
+                <input type="email" placeholder="Your email" className="bg-white/5 border border-white/10 rounded-l-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent/50 w-full" />
                 <button className="bg-accent text-white rounded-r-full px-4 py-2 font-medium hover:bg-accent/90 transition-colors">
                   Join
                 </button>
@@ -90,8 +79,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
